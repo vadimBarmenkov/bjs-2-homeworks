@@ -7,7 +7,7 @@ function solveEquation(a, b, c) {
   }
 
   if (discriminant > 0){
-    arr = [(-b + Math.sqrt(discriminant)) / (2 * a), (-b - Math.sqrt(discriminant)) / (2 * a)];
+    arr = [((-b + Math.sqrt(discriminant)) / (2 * a)).toFixed(2), ((-b - Math.sqrt(discriminant)) / (2 * a)).toFixed(2)];
   }
 
   return arr; // array
@@ -15,11 +15,6 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
-  percent = Number(percent / 100);
-  let S = Number(amount) * (1 + percent) - Number(contribution);
-
-
   // код для задачи №2 писать здесь
-
   return totalAmount;
 }
