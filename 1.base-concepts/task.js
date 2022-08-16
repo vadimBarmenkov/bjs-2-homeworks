@@ -1,5 +1,5 @@
 function solveEquation(a, b, c) {
-  let arr;
+  let arr = [];
   let discriminant = Math.pow(b, 2) - 4 * a * c;
 
   if ( discriminant == 0){
@@ -7,7 +7,7 @@ function solveEquation(a, b, c) {
   }
 
   if (discriminant > 0){
-    arr = [((-b + Math.sqrt(discriminant)) / (2 * a)).toFixed(2), ((-b - Math.sqrt(discriminant)) / (2 * a)).toFixed(2)];
+    arr = [(-b + Math.sqrt(discriminant)) / (2 * a), (-b - Math.sqrt(discriminant)) / (2 * a)];
   }
 
   return arr; // array
