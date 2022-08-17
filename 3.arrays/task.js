@@ -1,7 +1,7 @@
 function compareArrays(arr1, arr2) {
   let result = true;
   if(arr1.length === arr2.length){
-    arr1.forEach( (item, index) => {if(item != arr2[index]) result = false;});
+    arr1.every( (item, index) => {if(item != arr2[index]) result = false;});
   }else {
     result = false;
   }
