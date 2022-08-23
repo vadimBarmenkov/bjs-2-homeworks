@@ -1,10 +1,22 @@
 function Student(name, gender, age) {
-    // Ваш код
+    return{
+        name: name,
+        gender, gender,
+        age: age
+    };
 
 }
 
 Student.prototype.setSubject = function (subjectName) {
-  //ваш код
+
 }
 
-// ваш код для остальных методов
+Student.prototype.addMark = function (mark){
+    if(Student.mark){
+        mark: [mark];
+    }else{
+        
+    }
+}
+
+
