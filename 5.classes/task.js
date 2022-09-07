@@ -70,7 +70,7 @@ class Library {
 
     addBook(book){
         if (book.state > 30){
-            this.books[length] = book;
+            this.books.push(book);
         }
     }
 
