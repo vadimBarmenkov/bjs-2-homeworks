@@ -1,5 +1,6 @@
 function cachingDecoratorNew(func) {
-  let cache = {};
+    let cache = {};
+
     return (...args) => {
         const hash = args.join(",");
         if (hash in cache){
@@ -7,8 +8,8 @@ function cachingDecoratorNew(func) {
         }
 
         const result = func(...args);
-        if (cache.left === 5){
-            cache.shift();
+        if (Object.keys(cache).length === 5){
+            delete cache[Object.keys(cache)[0]];
         }
         cache[hash] = result;
         return  "Вычисляем: " + result;
@@ -18,21 +19,22 @@ function cachingDecoratorNew(func) {
 
 function debounceDecoratorNew(func, delay) {
     let timeOutId = null;
-    let count = 0;
-    let allCount;
-    return function (...args) {
+    function wrapper(...args) {
         if(timeOutId){
-            console.log("delete timeOutId");
-            count = 0;
             clearTimeout(timeOutId);
         }
-        console.log("create new timeOutId");
-        allCount++;
+        if(timeOutId === null){
+            delay = 0;
+        }
+        wrapper.allCount++;
         timeOutId = setTimeout(() => {
-            timeOutId = null;
-            count++;
-            console.log(func(...args));
-            console.log("run callback");
+            func(...args);
+            wrapper.count++;
         }, delay);
     }
+
+    wrapper.allCount = 0;
+    wrapper.count = 0;
+
+    return wrapper;
 }
